@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ListenPDF | Home</title>
+    <style>
+        .error{
+            color: red;
+            font-family: Arial;
+        }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Hello, Welcome to ListenPDF</h1>
+      {% comment %}
+      <audio
+        src="D:\1.Python projects\PDFLISTNER\listenpdf\listenpdfapp\templates\Over_the_horizon.mp3"
+        type="audio/mpeg"
+        controls
+      >
+        Your browser does not support the audio element.
+      </audio>
+      <video width="560" height="315" src="/7.mp4" controls="controls">
+        Bayan
+      </video>
+      {% endcomment %}
+    </header>
+    <main>
+      <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="pdf_file">Choose a file:</label><br />
+        <input type="file" id="fileUpload" name="pdf_file" /><br /><br />
+        <input type="submit" value="Read it for me" /> <br /><br />
+        {% if data %}
+        <h2>PDF Data:</h2>
+        <pre>{{data}}</pre>
+        {% endif %}
+      </form>
+      {% if messages %} {% for message in messages %}
+      <span {% if message.tags %} class="{{message.tags}}" {% endif %}>
+        {{message}}
+      </span>
+      {% endfor %} {% endif %}
+    </main>
+  </body>
+</html>

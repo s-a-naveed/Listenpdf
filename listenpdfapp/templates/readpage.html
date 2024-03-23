@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ListenPDF</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <h1>Hello, Listen your pdf from here...</h1>
+        {{data}} <br><br>
+        <input type="submit" value="Listen"> <br><br>
+        <input type="submit" value="stop" name='stop'> <br> <br>
+    </form> 
+    {% if messages %} {% for message in messages %}
+      <span {% if message.tags %} class="{{message.tags}}" {% endif %}>
+        {{message}}
+      </span>
+      {% endfor %} {% endif %}
+</body>
+</html>
